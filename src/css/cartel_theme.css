@@ -1,0 +1,91 @@
+/**
+ * @file cartel_theme.css
+ * @description "Tropical Noir" visual theme for the Cartel Industry mod.
+ *
+ * These rules are injected at runtime via `this.modInterface.injectCss()`.
+ * They complement the programmatic colour overrides in mod.js (background /
+ * grid-line colours) with higher-level UI chrome tweaks.
+ *
+ * HOW TO ADD STYLES
+ * -----------------
+ * 1. Add your rule below in the appropriate section.
+ * 2. Prefix all selectors with `.cartel-industry` where possible so that
+ *    rules are scoped and don't bleed into the base game UI.
+ * 3. Use the design tokens defined in the :root block for consistency.
+ */
+
+/* =========================================================================
+   Design tokens
+   ========================================================================= */
+
+:root {
+    /* Map / background */
+    --ci-bg-dark:          #0d1109;   /* deep jungle green – map background   */
+    --ci-grid-line:        rgba(20, 30, 15, 0.5); /* dark olive grid lines    */
+
+    /* Accent colours */
+    --ci-accent-cyan:      #00f5d4;   /* neon cyan – Processing Lab highlight */
+    --ci-accent-amber:     #f5a623;   /* warm amber – secondary UI highlight  */
+
+    /* Text */
+    --ci-text-primary:     #e8e0d0;   /* off-white – readable on dark bg      */
+    --ci-text-secondary:   #8a9a80;   /* muted olive – secondary labels       */
+
+    /* UI chrome */
+    --ci-panel-bg:         rgba(10, 18, 8, 0.88);
+    --ci-border:           rgba(0, 245, 212, 0.25);
+}
+
+/* =========================================================================
+   Global resets scoped to the mod's UI panels
+   ========================================================================= */
+
+.cartel-industry .panel,
+.cartel-industry .ingame_HUD_BuildingPlacerHUD {
+    background-color: var(--ci-panel-bg);
+    border: 1px solid var(--ci-border);
+    color: var(--ci-text-primary);
+    font-family: "Courier New", Courier, monospace; /* gritty typewriter feel */
+}
+
+/* =========================================================================
+   Building toolbar – highlight the Processing Lab button
+   ========================================================================= */
+
+/* When the "processing_lab" building is selected, glow in neon cyan.      */
+.cartel-industry [data-icon="building_processing_lab"],
+.cartel-industry .building_processing_lab {
+    box-shadow: 0 0 8px 2px var(--ci-accent-cyan);
+    border-color: var(--ci-accent-cyan);
+}
+
+/* =========================================================================
+   HUD overlays
+   ========================================================================= */
+
+/* Speed / info badges on placed buildings */
+.cartel-industry .badge {
+    background-color: var(--ci-accent-cyan);
+    color: #000;
+}
+
+/* =========================================================================
+   Placeholder – Custom Sprites
+   =========================================================================
+   Sprite overrides are registered programmatically in mod.js via
+   `this.modInterface.registerSprite()`.  Add the corresponding CSS
+   `background-image` rules here once the sprite sheet is finalised.
+   ========================================================================= */
+
+/* Example (uncomment and adjust path when sprites are ready):
+.cartel-industry [data-building="processing_lab"] .icon {
+    background-image: url("../sprites/buildings/processing_lab.png");
+}
+*/
+
+/* =========================================================================
+   Placeholder – Future shape types
+   =========================================================================
+   Add shape icon overrides here once "Cocaine Bricks" and "Money Stacks"
+   shapes are implemented.
+   ========================================================================= */

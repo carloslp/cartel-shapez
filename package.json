@@ -1,0 +1,25 @@
+{
+  "id": "cartel-industry",
+  "name": "Cartel Industry",
+  "version": "1.0.0",
+  "author": "Cartel Shapez Contributors",
+  "description": "A gritty 80s tropical logistics expansion inspired by Cartel Tycoon.",
+  "website": "https://github.com/carloslp/cartel-shapez",
+  "minimumGameVersion": ">=1.5.0",
+  "type": "module",
+  "main": "mod.js",
+  "scripts": {
+    "lint": "eslint mod.js src/**/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  },
+  "keywords": [
+    "shapez",
+    "shapez.io",
+    "mod",
+    "cartel-tycoon",
+    "tropical-noir"
+  ],
+  "license": "MIT"
+}
